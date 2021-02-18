@@ -104,11 +104,6 @@
             }
             
             [thread on];
-            
-            // TODO: Maybe move this so we only listen to a thread when it's open
-            [thread messagesOn];
-            [thread usersOn];
-            [thread lastMessageOn];
         }
     }];
 }

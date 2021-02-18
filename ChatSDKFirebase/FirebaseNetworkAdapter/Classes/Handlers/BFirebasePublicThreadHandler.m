@@ -84,5 +84,22 @@
     
 }
 
+-(void) start: (NSString *) entityID {
+    id<PThread> threadModel = Nil;
+
+    if(entityID) {
+        threadModel = [BChatSDK.db fetchEntityWithID:entityID withType:bThreadEntity];
+    }
+    
+    if(threadModel == NULL){
+        return;
+    }
+
+    CCThreadWrapper * thread = [CCThreadWrapper threadWithModel:threadModel];
+
+    [thread messagesOn];
+    [thread usersOn];
+    [thread lastMessageOn];
+}
 
 @end

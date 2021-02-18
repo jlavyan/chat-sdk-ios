@@ -41,6 +41,7 @@
 
 -(id<PThread>) fetchThreadWithUsers: (NSArray *) users;
 -(id<PThread>) fetchOrCreateThreadWithUsers: (NSArray *) users name: (NSString *) name;
+-(void) start: (NSString *) entityId;
 
 /**
  * @brief Add users to a thread
