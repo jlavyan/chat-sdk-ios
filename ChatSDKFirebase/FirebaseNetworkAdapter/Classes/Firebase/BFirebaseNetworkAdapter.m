@@ -15,23 +15,23 @@
 -(id) init {
     if((self = [super init])) {
         
-        if (BChatSDK.config.firebaseShouldConfigureAutomatically) {
-            NSString * plist = BChatSDK.config.firebaseGoogleServicesPlistName;
-            if (plist) {
-                plist = [plist stringByReplacingOccurrencesOfString:@".plist" withString:@""];
-                NSString * path = [[NSBundle mainBundle] pathForResource:plist ofType:@"plist"];
-                FIROptions * options = [[FIROptions alloc] initWithContentsOfFile:path];
-                                
-                if (BChatSDK.config.firebaseApp) {
-                    [FIRApp configureWithName:BChatSDK.config.firebaseApp options:options];
-                } else {
-                    [FIRApp configureWithOptions:options];
-                }
-            }
-            else {
-                [FIRApp configure];
-            }
-        }
+//        if (BChatSDK.config.firebaseShouldConfigureAutomatically) {
+//            NSString * plist = BChatSDK.config.firebaseGoogleServicesPlistName;
+//            if (plist) {
+//                plist = [plist stringByReplacingOccurrencesOfString:@".plist" withString:@""];
+//                NSString * path = [[NSBundle mainBundle] pathForResource:plist ofType:@"plist"];
+//                FIROptions * options = [[FIROptions alloc] initWithContentsOfFile:path];
+//                                
+//                if (BChatSDK.config.firebaseApp) {
+//                    [FIRApp configureWithName:BChatSDK.config.firebaseApp options:options];
+//                } else {
+//                    [FIRApp configureWithOptions:options];
+//                }
+//            }
+//            else {
+//                [FIRApp configure];
+//            }
+//        }
         [FIRDatabase database].persistenceEnabled = YES;
 
         self.core = [[BFirebaseCoreHandler alloc] init];
