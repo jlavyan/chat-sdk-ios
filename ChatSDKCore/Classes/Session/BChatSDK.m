@@ -262,7 +262,7 @@ static BChatSDK * instance;
 }
 
 +(id<PPublicThreadHandler>) publicThread {
-    if(currentUserID == NULL){
+    if([BChatSDK currentUserID] == NULL){
         return NULL;
     }
     return self.a.publicThread;
@@ -337,6 +337,10 @@ static BChatSDK * instance;
 }
 
 +(id<PThreadHandler>) thread {
+    if([BChatSDK currentUserID] == NULL){
+        return NULL;
+    }
+
     return self.a.thread;
 }
 
