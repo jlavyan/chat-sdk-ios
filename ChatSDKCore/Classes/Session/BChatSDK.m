@@ -262,6 +262,9 @@ static BChatSDK * instance;
 }
 
 +(id<PPublicThreadHandler>) publicThread {
+    if(currentUserID == NULL){
+        return NULL;
+    }
     return self.a.publicThread;
 }
 
